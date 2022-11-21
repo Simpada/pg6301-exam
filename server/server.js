@@ -1,10 +1,24 @@
 import express from "express";
 import * as path from "path";
 import * as dotenv from "dotenv";
+import {MongoClient} from "mongodb";
+import {RestaurantApi} from "./restaurantApi.js";
+import bodyParser from "body-parser";
 
 dotenv.config();
 
 const app = express();
+app.use(bodyParser.json());
+
+const mongoClient = new MongoClient(process.env.MONGODB_URL);
+
+mongoClient.connect().then(async () => {
+    app.use(
+        "/api/menu",
+        RestaurantApi(mongoClient.db(process.env.MONGODB_DATABASE || "api_and_webdesign"))
+    );
+});
+
 
 app.use(express.static("../client/dist"));
 
