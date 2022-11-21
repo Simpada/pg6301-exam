@@ -6,16 +6,23 @@ export function RestaurantApi(mongoDatabase) {
     const router = new Router();
 
     router.get("/", async (req, res) => {
+
+        const query = {
+            price : { $gte: 10 }
+        };
+        const {category} = req.query;
+        if (category) {
+            query.category = { $in: [category]};
+        }
+
+
         const items = await mongoDatabase.collection("exam_menu")
-            .find({
-                price: {
-                    $gte: 0,
-                }
-            })
-            .map(({name, ingredients, price}) => ({
+            .find(query)
+            .map(({name, ingredients, price, category}) => ({
                 name,
                 ingredients,
-                price
+                price,
+                category
             }))
             .toArray()
         res.json(items);
