@@ -43,8 +43,7 @@
       "**/*.jsx",
       "**/*.js",
       "!dist/**",
-      "!coverage/**",
-      "!node_modules/**"
+      "!coverage/**"
     ]
   }
 }

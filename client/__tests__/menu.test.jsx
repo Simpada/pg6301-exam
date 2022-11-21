@@ -31,7 +31,7 @@ describe("Menu component", () => {
         expect(domElement.innerHTML).toMatchSnapshot();
     });
 
-    it("queries by category", async() => {
+    it("queries by category and price", async() => {
         const domElement = document.createElement("div");
         const menu = jest.fn(() => []);
         await act(async () => {
@@ -45,12 +45,35 @@ describe("Menu component", () => {
         Simulate.change(domElement.querySelector("#category-query"), {
             target: {value: "vegetarian"},
         });
+        Simulate.change(domElement.querySelector("#price-query"), {
+            target: {value: "10"},
+        });
+
         await act(async () => {
             await Simulate.submit(domElement.querySelector("form"));
         });
         expect(menu).toHaveBeenCalledWith({
             category: "vegetarian",
-            price: ""
+            price: "10"
         });
+    });
+
+    it("shows error message", async () => {
+        const domElement = document.createElement("div");
+        await act(async() => {
+            const menu = () => {
+                throw new Error("No food here!");
+            };
+            ReactDOM.render(
+                <RestaurantApiContext.Provider value={{menu}}>
+                    <Menu/>
+                </RestaurantApiContext.Provider>,
+                domElement
+            );
+        });
+        expect(domElement.querySelector("#error-text").innerHTML).toEqual(
+            "Error: No food here!"
+        );
+        expect(domElement.innerHTML).toMatchSnapshot();
     });
 });
