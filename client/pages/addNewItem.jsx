@@ -18,21 +18,21 @@ export function AddNewItem() {
         navigate("/");
     }
 
-    return(
+    return (
         <form onSubmit={handleSubmit}>
             <h1> Add new Item to The Menu </h1>
 
             <div className="form-input">
                 <label>
                     <strong>Dish Name</strong>{" "}
-                    <input value={name} onChange={(e) => setName(e.target.value)} />
+                    <input value={name} onChange={(e) => setName(e.target.value)}/>
                 </label>
             </div>
             <div className="form-input">
                 <label>
 
                     <strong>Ingredients</strong>{" "}
-                    <input value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
+                    <input value={ingredients} onChange={(e) => setIngredients(e.target.value)}/>
                     Separate the ingredients by spaces
                 </label>
             </div>
@@ -41,16 +41,17 @@ export function AddNewItem() {
                     <strong>Price</strong>{" "}
                     <input
                         onKeyPress={(event) => {
-                        if (!/[0-9]/.test(event.key)) {
-                            event.preventDefault();
-                        }}}
-                        value={price} onChange={(e) => setPrice(e.target.value)} />
+                            if (!/[0-9]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                        value={price} onChange={(e) => setPrice(e.target.value)}/>
                 </label>
             </div>
             <div className="form-input">
                 <label>
                     <strong>Category</strong>{" "}
-                    <input value={category} onChange={(e) => setCategory(e.target.value)} />
+                    <input value={category} onChange={(e) => setCategory(e.target.value)}/>
                 </label>
             </div>
             <div>

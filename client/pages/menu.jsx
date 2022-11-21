@@ -4,8 +4,14 @@ import {RestaurantApiContext} from "../restaurantApiContext";
 
 
 function ItemEntry({item: {name, ingredients, price, category}}) {
+    let ingredientsPrint;
+    if (Array.isArray(ingredients)) {
+        ingredientsPrint = ingredients.map(e => `${e}, `);
+    }else {
+        ingredientsPrint = ingredients;
+    }
     return <><h3>{name}</h3>
-        <div>Ingredients: {ingredients.map(e => `${e}, `)}</div>
+        <div>Ingredients: {ingredientsPrint}</div>
         <div>Price: {price}</div>
         <div>Category: {category}</div>
     </>
