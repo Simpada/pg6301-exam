@@ -10,6 +10,8 @@
     "test": "npm run test:client && npm run test:server",
     "test:client": "cd client && npm run test",
     "test:server": "cd server && npm run test",
+    "pre-commit": "npm run prettier:check",
+    "prettier:check": "prettier --check **/*.{js,jsx,ts,tsx}",
     "postinstall": "npm run install:client && npm run install:server",
     "install:client": "cd client && npm install --include-dev",
     "install:server": "cd server && npm install"

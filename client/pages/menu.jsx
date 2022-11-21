@@ -34,7 +34,7 @@ export function Menu() {
     }
 
 
-    if (loading){
+    if (loading) {
         return <div>Loading...</div>
     }
     if (error) {
