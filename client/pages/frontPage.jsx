@@ -3,12 +3,12 @@ import React, { useContext } from "react";
 import { useLoading } from "../useLoading";
 import { LoginLinks } from "./login";
 import { RestaurantApiContext } from "../restaurantApiContext";
-import { fetchJSON } from "../lib/fetchJSON";
 
 export function FrontPage() {
   const { fetchLogin } = useContext(RestaurantApiContext);
+  const { logout } = useContext(RestaurantApiContext);
   const { loading, error, data, reload } = useLoading(
-    async () => await fetchJSON("/api/login")
+    async () => await fetchLogin()
   );
   const user = data;
 
@@ -39,10 +39,8 @@ export function FrontPage() {
             {user.fullName} ({user.username})
             <button
               onClick={async () => {
-                await fetch("/api/login", {
-                  method: "delete",
-                });
-                reload();
+                await logout();
+                await reload();
               }}
             >
               Logout

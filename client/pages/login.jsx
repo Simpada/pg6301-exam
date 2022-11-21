@@ -25,7 +25,7 @@ export function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    login({ username, password });
+    await login({ username, password });
     navigate("/");
   }
 

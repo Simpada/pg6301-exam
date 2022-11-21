@@ -14,12 +14,20 @@ export function LoginApi() {
     },
   ];
 
-  router.get("/", (req, res) => {
+  router.use((req, res, next) => {
+    const { username } = req.signedCookies;
+    req.user = users.find((u) => u.username === username);
+    next();
+  });
+
+  router.get("/", async (req, res) => {
     function respond() {
       if (req.user) {
         const { username, fullName } = req.user;
+        console.log("Im here");
         return res.json({ username, fullName });
       } else {
+        console.log("Im crashing");
         res.sendStatus(204);
       }
     }
