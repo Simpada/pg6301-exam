@@ -4,19 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:": "concurrently npm:dev:client npm:dev:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
     "test": "echo \"Error: no test specified\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Simpada/pg6301-exam.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Simpada/pg6301-exam/issues"
-  },
-  "homepage": "https://github.com/Simpada/pg6301-exam#readme",
   "devDependencies": {
     "concurrently": "^7.6.0",
     "prettier": "^2.7.1"

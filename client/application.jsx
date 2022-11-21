@@ -1,5 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {FrontPage} from "./pages/frontPage";
+import {Menu} from "./pages/menu";
 
 
 export function Application() {
@@ -7,8 +8,7 @@ export function Application() {
     return <BrowserRouter>
         <Routes>
             <Route path={"/"} element={<FrontPage/>}/>
-            <Route path={"/"} element={<Menu/>}/>
-            <Route path={"/"} element={<AddItem/>}/>
+            <Route path={"/menu"} element={<Menu/>}/>
         </Routes>
     </BrowserRouter>
 
