@@ -58,17 +58,17 @@ export function Menu() {
                 <label>
                     Price:
                     <input
+                        id="price-query"
                         onKeyPress={(event) => {
                             if (!/[0-9]/.test(event.key)) {
                                 event.preventDefault();
                             }
                         }}
-                        id="category-query"
                         value={priceQuery}
                         onChange={(e) => setPriceQuery(e.target.value)}
                     />
                 </label>
-                <br></br>
+                <br/>
                 <button>Filter</button>
             </form>
         </div>
