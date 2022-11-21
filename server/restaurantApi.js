@@ -8,15 +8,15 @@ export function RestaurantApi(mongoDatabase) {
     router.get("/", async (req, res) => {
 
         const query = {
-            price : { $gte: 0 }
+            price: {$gte: 0}
         };
         const {category} = req.query;
         if (category) {
-            query.category = { $in: [category]};
+            query.category = {$in: [category]};
         }
         const {price} = req.query;
         if (price) {
-            query.price = { $gte: parseInt(price)};
+            query.price = {$gte: parseInt(price)};
         }
 
         const items = await mongoDatabase.collection("exam_menu")

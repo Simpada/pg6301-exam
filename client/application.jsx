@@ -2,9 +2,12 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import {FrontPage} from "./pages/frontPage";
 import {Menu} from "./pages/menu";
 import {AddNewItem} from "./pages/addNewItem";
+import React, {useContext} from "react";
+
 
 
 export function Application() {
+
 
     return <BrowserRouter>
         <header>
@@ -19,6 +22,9 @@ export function Application() {
                 <Route path={"/"} element={<FrontPage/>}/>
                 <Route path={"/menu"} element={<Menu/>}/>
                 <Route path={"/menu/add"} element={<AddNewItem/>}/>
+                {/*<Route path={"/login/*"} element={<LoginPage config={data.config} reload={reload} />} />*/}
+                {/*<Route path={"/profile"} element={<Profile user={data?.user} />} />*/}
+                <Route path={"*"} element={<h1>Not found</h1>} />
             </Routes>
         </main>
 

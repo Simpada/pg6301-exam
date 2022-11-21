@@ -4,6 +4,9 @@ import {postJSON} from "./lib/postJSON";
 
 
 export const RestaurantApiContext = React.createContext({
+    async fetchLogin() {
+        return await fetchJSON("/api/login");
+    },
     async menu(query) {
         return await fetchJSON("/api/menu?" + new URLSearchParams(query));
     },
