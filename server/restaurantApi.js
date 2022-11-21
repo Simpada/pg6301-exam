@@ -19,8 +19,6 @@ export function RestaurantApi(mongoDatabase) {
             query.price = { $gte: parseInt(price)};
         }
 
-
-
         const items = await mongoDatabase.collection("exam_menu")
             .find(query)
             .map(({name, ingredients, price, category}) => ({
@@ -31,6 +29,14 @@ export function RestaurantApi(mongoDatabase) {
             }))
             .toArray()
         res.json(items);
+    });
+
+    router.post("/add", (req, res) => {
+        const {name, ingredients, price, category} = req.body;
+        mongoDatabase
+            .collection("exam_menu")
+            .insertOne({name, ingredients, price, category});
+        res.sendStatus(200);
     });
 
 
