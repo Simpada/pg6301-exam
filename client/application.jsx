@@ -1,6 +1,7 @@
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import {FrontPage} from "./pages/frontPage";
 import {Menu} from "./pages/menu";
+import {AddNewItem} from "./pages/addNewItem";
 
 
 export function Application() {
@@ -17,6 +18,7 @@ export function Application() {
             <Routes>
                 <Route path={"/"} element={<FrontPage/>}/>
                 <Route path={"/menu"} element={<Menu/>}/>
+                <Route path={"/menu/add"} element={<AddNewItem/>}/>
             </Routes>
         </main>
 

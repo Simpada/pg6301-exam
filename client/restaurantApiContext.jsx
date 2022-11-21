@@ -7,6 +7,6 @@ export const RestaurantApiContext = React.createContext({
         return await fetchJSON("/api/menu?" + new URLSearchParams(query));
     },
     async addItem(query) {
-        return await fetchJSON("/api/menu/add" + new URLSearchParams(query));
+        return await postJSON("/api/menu/add" + new URLSearchParams(query));
     }
 })
