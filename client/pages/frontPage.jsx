@@ -1,18 +1,12 @@
 import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { useLoading } from "../useLoading";
-import { LoginLinks } from "./login";
 import { RestaurantApiContext } from "../restaurantApiContext";
 
 export function FrontPage() {
   const { fetchLogin } = useContext(RestaurantApiContext);
-  const { logout } = useContext(RestaurantApiContext);
-  const { loading, error, data, reload } = useLoading(
-    async () => await fetchLogin()
-  );
+  const { loading, error, data } = useLoading(async () => await fetchLogin());
   const user = data;
-
-  console.log(user);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -43,24 +37,6 @@ export function FrontPage() {
           <div></div>
         )}
       </ul>
-
-      <div>
-        {user ? (
-          <div>
-            {user.fullName} ({user.username})
-            <button
-              onClick={async () => {
-                await logout();
-                await reload();
-              }}
-            >
-              Logout
-            </button>
-          </div>
-        ) : (
-          <LoginLinks />
-        )}
-      </div>
     </div>
   );
 }

@@ -1,19 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { RestaurantApiContext } from "../restaurantApiContext";
-
-export function LoginLinks() {
-  return (
-    <div>
-      <div>
-        <Link to={"/login"}>Login</Link>
-      </div>
-      <div>
-        <Link to={"/register"}>Register new user</Link>
-      </div>
-    </div>
-  );
-}
 
 export function Login() {
   const [username, setUsername] = useState("");
@@ -27,6 +14,7 @@ export function Login() {
     e.preventDefault();
     await login({ username, password });
     navigate("/");
+    window.location.reload();
   }
 
   return (

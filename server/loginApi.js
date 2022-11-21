@@ -27,14 +27,12 @@ export function LoginApi() {
     next();
   });
 
-  router.get("/", async (req, res) => {
+  router.get("/", (req, res) => {
     function respond() {
       if (req.user) {
         const { username, fullName, isAdmin } = req.user;
-        console.log("Im here");
         return res.json({ username, fullName, isAdmin });
       } else {
-        console.log("Im crashing");
         res.sendStatus(204);
       }
     }
