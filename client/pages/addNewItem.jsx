@@ -30,14 +30,21 @@ export function AddNewItem() {
             </div>
             <div className="form-input">
                 <label>
+
                     <strong>Ingredients</strong>{" "}
                     <input value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
+                    Separate the ingredients by spaces
                 </label>
             </div>
             <div className="form-input">
                 <label>
                     <strong>Price</strong>{" "}
-                    <input value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input
+                        onKeyPress={(event) => {
+                        if (!/[0-9]/.test(event.key)) {
+                            event.preventDefault();
+                        }}}
+                        value={price} onChange={(e) => setPrice(e.target.value)} />
                 </label>
             </div>
             <div className="form-input">
