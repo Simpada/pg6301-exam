@@ -11,6 +11,13 @@ export function LoginApi() {
       username: "admin",
       fullName: "Mr Admin",
       password: "admin",
+      isAdmin: true,
+    },
+    {
+      username: "guest",
+      fullName: "Mr Guest",
+      password: "guest",
+      isAdmin: false,
     },
   ];
 
@@ -23,9 +30,9 @@ export function LoginApi() {
   router.get("/", async (req, res) => {
     function respond() {
       if (req.user) {
-        const { username, fullName } = req.user;
+        const { username, fullName, isAdmin } = req.user;
         console.log("Im here");
-        return res.json({ username, fullName });
+        return res.json({ username, fullName, isAdmin });
       } else {
         console.log("Im crashing");
         res.sendStatus(204);

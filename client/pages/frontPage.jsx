@@ -21,6 +21,13 @@ export function FrontPage() {
     return <div>{error.toString()}</div>;
   }
 
+  let admin = false;
+  if (user !== null) {
+    if (user.isAdmin) {
+      admin = true;
+    }
+  }
+
   return (
     <div>
       <h1>The API and Web-design Restaurant</h1>
@@ -28,9 +35,13 @@ export function FrontPage() {
         <li>
           <Link to={"/menu"}>View Menu</Link>
         </li>
-        <li>
-          <Link to={"/menu/add"}>Add an Item to The Menu</Link>
-        </li>
+        {admin ? (
+          <li>
+            <Link to={"/menu/add"}>Add an Item to The Menu</Link>
+          </li>
+        ) : (
+          <div></div>
+        )}
       </ul>
 
       <div>
