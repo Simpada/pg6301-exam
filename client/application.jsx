@@ -1,24 +1,25 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import {FrontPage} from "./pages/frontPage";
 import {Menu} from "./pages/menu";
 
 
 export function Application() {
 
-    async function menu() {
-        const res = await fetch("/api/menu");
-        if (!res.ok) {
-            throw new Error(`Failed ${res.status}: ${(await res).statusText}`);
-        }
-        return await res.json();
-
-    }
-
     return <BrowserRouter>
-        <Routes>
-            <Route path={"/"} element={<FrontPage/>}/>
-            <Route path={"/menu"} element={<Menu menu={menu} />}/>
-        </Routes>
+        <header>
+            <Link to={"/"}>Front page</Link>
+            <br/>
+            <Link to={"/menu"}>Menu</Link>
+            <div className="menu-divider" />
+            {/*<UserActions user={data?.user} />*/}
+        </header>
+        <main>
+            <Routes>
+                <Route path={"/"} element={<FrontPage/>}/>
+                <Route path={"/menu"} element={<Menu/>}/>
+            </Routes>
+        </main>
+
     </BrowserRouter>
 
 }

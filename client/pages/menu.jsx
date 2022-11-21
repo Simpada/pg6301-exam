@@ -1,5 +1,6 @@
 import {useLoading} from "../useLoading";
-import {useState} from "react";
+import React, {useContext, useState} from "react";
+import {RestaurantApiContext} from "../restaurantApiContext";
 
 
 function ItemEntry({item: {name, ingredients, price, category}}) {
@@ -10,20 +11,23 @@ function ItemEntry({item: {name, ingredients, price, category}}) {
     </>
 }
 
-export function Menu({menu}) {
+export function Menu() {
 
-
-    const {category, setCategory} = useState("");
-    const {categoryQuery, setCategoryQuery} = useState("");
+    const {menu} = useContext(RestaurantApiContext)
+    const [category, setCategory] = useState("");
+    const [categoryQuery, setCategoryQuery] = useState("");
+    const [price, setPrice] = useState("");
+    const [priceQuery, setPriceQuery] = useState("");
     const {loading, error, data} = useLoading(
-
-        menu
+        async () => await menu({category, price}),
+        [category, price]
     );
 
 
     function handleSubmitQuery(e) {
         e.preventDefault();
         setCategory(categoryQuery);
+        setPrice(priceQuery);
     }
 
 
@@ -43,14 +47,29 @@ export function Menu({menu}) {
         <div>
             <form onSubmit={handleSubmitQuery}>
                 <label>
-                    Country:
+                    Category:
                     <input
                         id="category-query"
                         value={categoryQuery}
                         onChange={(e) => setCategoryQuery(e.target.value)}
                     />
-                    <button>Filter</button>
                 </label>
+                <br/>
+                <label>
+                    Price:
+                    <input
+                        onKeyPress={(event) => {
+                            if (!/[0-9]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                        id="category-query"
+                        value={priceQuery}
+                        onChange={(e) => setPriceQuery(e.target.value)}
+                    />
+                </label>
+                <br></br>
+                <button>Filter</button>
             </form>
         </div>
 
