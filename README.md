@@ -2,10 +2,10 @@ Tests:
 [![.github/workflows/verify.yml](https://github.com/Simpada/pg6301-exam/actions/workflows/verify.yml/badge.svg)](https://github.com/Simpada/pg6301-exam/actions/workflows/verify.yml)
 
 Client Coverage: 
-[![](client/coverage/badge.svg)](https://github.com/Simpada/pg6301-exam/commit/94d65c6078e87499d64602c9376fef08b557b53b#commitcomment-90734665)
+[![](client/coverage/badge.svg)](https://github.com/Simpada/pg6301-exam/commit/368f64f1d36ddf2f36dcd4cf76d74b4a49b1648a#commitcomment-90742740)
 
 Server Coverage: 
-[![](server/coverage/badge.svg)](https://github.com/Simpada/pg6301-exam/commit/94d65c6078e87499d64602c9376fef08b557b53b#commitcomment-90734701)
+[![](server/coverage/badge.svg)](https://github.com/Simpada/pg6301-exam/commit/368f64f1d36ddf2f36dcd4cf76d74b4a49b1648a#commitcomment-90742761)
 
 # pg6301-exam
 
