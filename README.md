@@ -17,7 +17,7 @@ Used a personal repo because of some problems with GitHub-classrooms and secrets
 #### Endpoints
 - /api/menu to get menu
 - /api/menu/add to add items to the menu with post
-- /api/login to login and check login status wwith get/post, and to delete cookies
+- /api/login to login and check login status with get/post, and to delete cookies
 
 #### Users
 Admin: <br />
