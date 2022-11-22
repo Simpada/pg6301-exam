@@ -45,12 +45,14 @@ export function LoginApi() {
   });
 
   router.post("/", (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, skip } = req.body;
     const user = users.find(
       (u) => u.username === username && u.password === password
     );
     if (user) {
-      res.cookie("username", user.username, { signed: true });
+      if (skip !== true) {
+        res.cookie("username", user.username, { signed: true });
+      }
       res.sendStatus(200);
     } else {
       res.sendStatus(401);

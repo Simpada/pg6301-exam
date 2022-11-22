@@ -3,21 +3,24 @@ import React, { useContext } from "react";
 import { useLoading } from "../useLoading";
 import { RestaurantApiContext } from "../restaurantApiContext";
 
-export function FrontPage() {
+export function FrontPage(skip) {
   const { fetchLogin } = useContext(RestaurantApiContext);
   const { loading, error, data } = useLoading(async () => await fetchLogin());
   const user = data;
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return <div>{error.toString()}</div>;
+  let admin = false;
+
+  if (skip.skip !== true) {
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+    if (error) {
+      return <div>{error.toString()}</div>;
+    }
   }
 
-  let admin = false;
   if (user !== null) {
-    if (user.isAdmin) {
+    if (skip.skip !== true && user.isAdmin) {
       admin = true;
     }
   }

@@ -20,12 +20,12 @@ export function Login() {
   return (
     <form onSubmit={handleSubmit}>
       <h1>Please log in</h1>
-      <div>
-        Username:{" "}
+      <div className="form-input">
+        <strong>Username:</strong>
         <input value={username} onChange={(e) => setUsername(e.target.value)} />
       </div>
-      <div>
-        Password:{" "}
+      <div className="form-input">
+        <strong>Password:</strong>
         <input
           type="password"
           value={password}
@@ -35,7 +35,7 @@ export function Login() {
       <div>
         <button>Log in</button>
       </div>
-      <pre>{JSON.stringify({ username, password }, undefined, "  ")}</pre>
+      {/*<pre>{JSON.stringify({ username, password }, undefined, "  ")}</pre>*/}
     </form>
   );
 }
