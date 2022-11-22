@@ -10,6 +10,7 @@ Server Coverage:
 # pg6301-exam
 
 #### Personal Repo for project: https://github.com/Simpada/pg6301-exam
+Used a personal repo because of some problems with GitHub-classrooms and secrets
 
 #### To start the programme, "npm run dev" while in the root folder
 
