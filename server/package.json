@@ -47,9 +47,7 @@
       "!coverage/**"
     ],
     "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
+      "json-summary"
     ]
   }
 }

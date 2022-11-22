@@ -8,8 +8,8 @@
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
     "test": "npm run test:client && npm run test:server",
-    "test:client": "cd client && npm run test -- --coverage && jest-coverage-badges",
-    "test:server": "cd server && npm run test -- --coverage && jest-coverage-badges",
+    "test:client": "cd client && npm run test -- --coverage && make-coverage-badge",
+    "test:server": "cd server && npm run test -- --coverage && make-coverage-badge",
     "pre-commit": "npm run prettier:check",
     "prettier:check": "prettier --check **/*.{js,jsx,ts,tsx}",
     "postinstall": "npm run install:client && npm run install:server",
@@ -21,9 +21,10 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "make-coverage-badge": "^1.2.0",
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "jest-coverage-badges": "^1.1.2"
+    "jest-coverage-badge": "^1.0.0"
   }
 }
