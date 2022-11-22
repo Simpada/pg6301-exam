@@ -42,11 +42,9 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "!server.js",
       "**/*.js",
       "!dist/**",
       "!coverage/**"
-
     ]
   }
 }
