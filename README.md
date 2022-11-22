@@ -35,12 +35,12 @@ password: guest
   - /login to login
 - There is a top bar with Front Page, Menu, Login/logout, that is always visible and can be used to navigate from anywhere. This bar also shows the name of the logged in account
 - The programme uses a restful API with GET, POST, and DELETE calls, and the client sends JSON with data to the server and uses fetch
-- The porject has been uploaded to a repository, and have been continously updated there, with using branches and github actions for testing
+- The project has been uploaded to a repository, and have been continuously updated there, with using branches and GitHub actions for testing
 - Cookies are used to keep the logged in state of a user, and the cookies are cleared when a user logs out. The cookies also determine certain access dependent on who is logged in
 - The front end has a login page
-- A logged in user can see their name at the top
-- A user can login or log out from any page
+- A logged-in user can see their name at the top
+- A user can log in or log out from any page
 - The add new item can handle a string of seperated words, transforming it into an array for the database
-- The progamme uses a real time database to store the items in the menu
-- A guest can see the entire menu, and sort the dishes by catagory or by price
+- The programme uses a real time database to store the items in the menu
+- A guest can see the entire menu, and sort the dishes by category or by price
 - An admin can add new items, guests cannot access this part
