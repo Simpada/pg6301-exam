@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`front page component shows front page 1`] = `"<div>ReferenceError: fetch is not defined</div>"`;
+exports[`front page component shows error page 1`] = `"<div>ReferenceError: fetch is not defined</div>"`;
+
+exports[`front page component shows front page 1`] = `"<div><h1>The API and Web-design Restaurant</h1><ul><li><a href="/menu">View Menu</a></li><div></div></ul></div>"`;

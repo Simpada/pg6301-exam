@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`application component shows top bar 1`] = `"<header><div><a href="/">Front page</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/menu">Menu</a></div><div><a href="/login">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class="menu-divider"></div></header><main><div>ReferenceError: fetch is not defined</div></main>"`;
