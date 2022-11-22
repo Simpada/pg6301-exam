@@ -45,6 +45,11 @@
       "**/*.js",
       "!dist/**",
       "!coverage/**"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
     ]
   }
 }

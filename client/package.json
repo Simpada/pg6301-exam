@@ -49,6 +49,11 @@
       "!coverage/**",
       "!lib/**",
       "!index**"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
     ]
   }
 }
